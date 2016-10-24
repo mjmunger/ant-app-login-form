@@ -6,9 +6,11 @@ namespace PHPAnt\Core;
  * App Name: PHPAnt Login Form
  * App Description: Provides the user / pass login form for authentication at a specific URL.
  * App Version: 1.0
- * App Action: login-user       -> loginUser                  @ 50
+ * App Action: login-user       -> loginUser                   @ 50
+ * App Action: logout-user      -> logOutUser                  @ 50
  *
  * App URI: "#^\/login\/.*#"    -> login-user
+ * App URI: "#^\/logout\/.*#"   -> logout-user
  */
 
  /**
@@ -117,6 +119,18 @@ class LoginForm extends \PHPAnt\Core\AntApp implements \PHPAnt\Core\AppInterface
 
     function loginUser($args) {
         include(__DIR__ . '/resources/login.php');
+        return ['success' => true];
+    }
+
+    function logOutUser($args) {
+        
+        //Remove the token (if present) from the database.
+        $CredentialStorage = new \PHPAnt\Authentication\CredentialStorage($args['AE']->Configs->pdo  //PDO instance
+                                                                         ,0                          //User's ID
+                                                                         ,0                          //Role ID
+                                                                         );
+
+        $CredentialStorage->removeCredentials($args['AE']->Configs->Server->Request->cookies['users_token'],$args['AE']->Configs->getDomain());
         return ['success' => true];
     }
 }
