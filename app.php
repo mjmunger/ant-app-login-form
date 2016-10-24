@@ -6,9 +6,9 @@ namespace PHPAnt\Core;
  * App Name: PHPAnt Login Form
  * App Description: Provides the user / pass login form for authentication at a specific URL.
  * App Version: 1.0
- * App Action: cli-load-grammar -> loadLoginForm @ 90
- * App Action: cli-init         -> declareMySelf  @ 50
- * App Action: cli-command      -> processCommand @ 50
+ * App Action: login-user       -> loginUser                  @ 50
+ *
+ * App URI: "#^\/login\/.*#"    -> login-user
  */
 
  /**
@@ -115,5 +115,8 @@ class LoginForm extends \PHPAnt\Core\AntApp implements \PHPAnt\Core\AppInterface
         return ['success' => true];
     }
 
-
+    function loginUser($args) {
+        include(__DIR__ . '/resources/login.php');
+        return ['success' => true];
+    }
 }
