@@ -1,0 +1,25 @@
+.login.logo {
+    margin: auto;
+    text-align: center;
+    width: 25%;
+}
+
+@media (max-width:420px) {
+    .login.logo {
+        width: 85%;
+    }
+
+    img.maintenenace.logo {
+        width: 85%;
+    }
+}
+
+@media (max-width:800px) {
+    .login.logo {
+        width: 50%;
+    }
+
+    img.maintenenace.logo {
+        width: 50%;
+    }
+}
