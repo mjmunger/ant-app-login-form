@@ -120,6 +120,7 @@ class LoginForm extends \PHPAnt\Core\AntApp implements \PHPAnt\Core\AppInterface
     function loginUser($args) {
         $AppEngine = $args['AE'];
         include(__DIR__ . '/resources/login.php');
+
         return ['success' => true
                ,'exit'    => true
                ];
