@@ -118,13 +118,16 @@ class LoginForm extends \PHPAnt\Core\AntApp implements \PHPAnt\Core\AppInterface
     }
 
     function loginUser($args) {
+        $AppEngine = $args['AE'];
         include(__DIR__ . '/resources/login.php');
-        return [ 'success' => true
-               , 'exit'   =>  true
+
+        return ['success' => true
+               ,'exit'    => true
                ];
     }
 
     function destroyCredentials($args) {
+
         //Remove the token (if present) from the database.
         $CredentialStorage = new \PHPAnt\Authentication\CredentialStorage($args['AE']->Configs->pdo  //PDO instance
                                                                          ,0                          //User's ID
