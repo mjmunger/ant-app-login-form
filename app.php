@@ -10,7 +10,7 @@ namespace PHPAnt\Core;
  * App Action: logout-user      -> logOutUser                  @ 50
  *
  * App URI: "#^\/login\/.*#"    -> login-user
- * App URI: "#^\/logout\/.*#"   -> logout-user
+ * App URI: "#^\/logout\/.*#"   -> logout-user @ 50
  */
 
  /**
@@ -21,7 +21,7 @@ namespace PHPAnt\Core;
  * @subpackage   Core
  * @category     UI
  * @author       Michael <michael@highpoweredhelp.com>
- */ 
+ */
 
 
 class LoginForm extends \PHPAnt\Core\AntApp implements \PHPAnt\Core\AppInterface  {
@@ -48,7 +48,7 @@ class LoginForm extends \PHPAnt\Core\AntApp implements \PHPAnt\Core\AppInterface
      * Callback for the cli-load-grammar action, which adds commands specific to this plugin to the CLI grammar.
      * Example:
      *
-     * @return array An array of CLI grammar that will be merged with the rest of the grammar. 
+     * @return array An array of CLI grammar that will be merged with the rest of the grammar.
      * @author Michael <michael@highpoweredhelp.com>
      **/
 
@@ -56,7 +56,7 @@ class LoginForm extends \PHPAnt\Core\AntApp implements \PHPAnt\Core\AppInterface
         $grammar = [];
 
         $this->loaded = true;
-        
+
         $results['grammar'] = $grammar;
         $results['success'] = true;
         return $results;
@@ -64,7 +64,7 @@ class LoginForm extends \PHPAnt\Core\AntApp implements \PHPAnt\Core\AppInterface
 
     //Uncomment this function and the following function to enable the autoloader for this plugin.
     function LoginFormAutoLoader() {
-        //REGISTER THE AUTOLOADER! This has to be done first thing! 
+        //REGISTER THE AUTOLOADER! This has to be done first thing!
         spl_autoload_register(array($this,'loadLoginFormClasses'));
         return ['success' => true];
 
@@ -87,7 +87,7 @@ class LoginForm extends \PHPAnt\Core\AntApp implements \PHPAnt\Core\AppInterface
                 if(is_readable($dependency)) {
 
                     //Print debug info if verbosity is greater than 9
-                    if($this->verbosity > 9) print "Including: " . $dependency . PHP_EOL;
+                    if($this->verbosity > 11) print "Including: " . $dependency . PHP_EOL;
 
                     //Include the file!
                     include($dependency);
@@ -96,7 +96,7 @@ class LoginForm extends \PHPAnt\Core\AntApp implements \PHPAnt\Core\AppInterface
         }
         return ['success' => true];
     }
-    
+
     /**
      * Callback function that prints to the CLI during cli-init to show this plugin has loaded.
      * Example:
@@ -124,15 +124,21 @@ class LoginForm extends \PHPAnt\Core\AntApp implements \PHPAnt\Core\AppInterface
                ];
     }
 
-    function logOutUser($args) {
-        
+    function destroyCredentials($args) {
         //Remove the token (if present) from the database.
         $CredentialStorage = new \PHPAnt\Authentication\CredentialStorage($args['AE']->Configs->pdo  //PDO instance
                                                                          ,0                          //User's ID
                                                                          ,0                          //Role ID
                                                                          );
 
-        $CredentialStorage->removeCredentials($args['AE']->Configs->Server->Request->cookies['users_token'],$args['AE']->Configs->getDomain());
+        $CredentialStorage->removeCredentials( $args['AE']->Configs->Server->Request->cookies['users_token']
+                                             , $args['AE']->Configs->getDomain()
+                                             );
+    }
+
+    function logOutUser($args) {
+
+        $this->destroyCredentials($args);
         return ['success' => true];
     }
 }
