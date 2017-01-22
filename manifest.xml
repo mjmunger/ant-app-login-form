@@ -1,27 +1,27 @@
 <?xml version="1.0"?>
 <app name="LoginForm" namespace="PHPAnt\Core">
   <file>
-    <name>/home/bugzy/www/includes/apps/ant-app-login-form/.git</name>
+    <name>/home/mcdb2/www/includes/apps/ant-app-login-form/tests</name>
     <hash>da39a3ee5e6b4b0d3255bfef95601890afd80709</hash>
   </file>
   <file>
-    <name>/home/bugzy/www/includes/apps/ant-app-login-form/resources</name>
+    <name>/home/mcdb2/www/includes/apps/ant-app-login-form/classes</name>
     <hash>da39a3ee5e6b4b0d3255bfef95601890afd80709</hash>
   </file>
   <file>
-    <name>/home/bugzy/www/includes/apps/ant-app-login-form/tests</name>
+    <name>/home/mcdb2/www/includes/apps/ant-app-login-form/public.key</name>
+    <hash>d497dbf421caae90797866e3612f6a240cfcdb24</hash>
+  </file>
+  <file>
+    <name>/home/mcdb2/www/includes/apps/ant-app-login-form/resources</name>
     <hash>da39a3ee5e6b4b0d3255bfef95601890afd80709</hash>
   </file>
   <file>
-    <name>/home/bugzy/www/includes/apps/ant-app-login-form/app.php</name>
-    <hash>03d5ad9f2865583122061412ad73bfdf0871debf</hash>
+    <name>/home/mcdb2/www/includes/apps/ant-app-login-form/app.php</name>
+    <hash>c828ae71b0c4aae977ff13d515d9fbca453baadb</hash>
   </file>
   <file>
-    <name>/home/bugzy/www/includes/apps/ant-app-login-form/public.key</name>
-    <hash>8350d8806c33839215de081616b9da23ab14d8b7</hash>
-  </file>
-  <file>
-    <name>/home/bugzy/www/includes/apps/ant-app-login-form/classes</name>
+    <name>/home/mcdb2/www/includes/apps/ant-app-login-form/.git</name>
     <hash>da39a3ee5e6b4b0d3255bfef95601890afd80709</hash>
   </file>
   <action>

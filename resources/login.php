@@ -10,10 +10,15 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <style>
-    .login.logo {
+
+.login.logo {
     margin: auto;
     text-align: center;
     width: 25%;
+}
+
+.form-signin label.checkbox {
+    margin-left: 2rem;
 }
 
 @media (max-width:420px) {
@@ -33,6 +38,15 @@
 
     img.maintenenace.logo {
         width: 50%;
+    }
+
+}
+
+@media (min-width:48rem) {
+  .login-form {
+        width: 40rem;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
       
@@ -59,15 +73,17 @@
   </head>
   <div class="container">
     <p class="text-center"><img src="/img/bugzy-logo.png" class="login logo"/></p>
-    <form class="form-signin" role="form" method="post">
-      <h2 class="form-signin-heading text-center">Please sign in</h2>
-      <input type="text" class="form-control" name="username" id="username" placeholder="Email address" required autofocus>
-      <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
-      <label class="checkbox">
-        <input type="checkbox" value="remember-me" name="remember" id="remember" checked> Remember me
-      </label>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    </form>
-    <p align="center"><a href="reset.php">Forgot Your Password?</a></p>
+    <div class="login-form">
+      <form class="form-signin" role="form" method="post">
+        <h2 class="form-signin-heading text-center">Please sign in</h2>
+        <input type="text" class="form-control" name="username" id="username" placeholder="Email address" required autofocus>
+        <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+        <label class="checkbox">
+          <input type="checkbox" value="remember-me" name="remember" id="remember" checked> Remember me
+        </label>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
+      <p align="center"><a href="reset.php">Forgot Your Password?</a></p>
+    </div> <!-- /login-form -->
   </div> <!-- /container -->
 </html>
