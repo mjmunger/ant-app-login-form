@@ -1,3 +1,4 @@
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -72,7 +73,7 @@
       <![endif]-->
   </head>
   <div class="container">
-    <p class="text-center"><img src="/img/bugzy-logo.png" class="login logo"/></p>
+    <p class="text-center"><img class="login-logo" src="<?php echo $logo; ?>" class="login logo"/></p>
     <div class="login-form">
       <form class="form-signin" role="form" method="post">
         <h2 class="form-signin-heading text-center">Please sign in</h2>
