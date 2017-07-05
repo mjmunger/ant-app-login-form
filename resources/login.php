@@ -76,7 +76,7 @@
     <div class="login-form">
       <form class="form-signin" role="form" method="post">
         <h2 class="form-signin-heading text-center">Please sign in</h2>
-        <input type="text" class="form-control" name="username" id="username" placeholder="Email address" required autofocus>
+        <input type="text" class="form-control" name="username" id="username" placeholder="Username" required autofocus>
         <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
         <label class="checkbox">
           <input type="checkbox" value="remember-me" name="remember" id="remember" checked> Remember me
