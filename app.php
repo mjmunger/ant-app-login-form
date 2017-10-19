@@ -120,10 +120,27 @@ class LoginForm extends \PHPAnt\Core\AntApp implements \PHPAnt\Core\AppInterface
     function loginUser($args) {
         $AppEngine = $args['AE'];
 
-        $AppEngine->runActions('include-login');
-        // $logo = $AppEngine->Configs->getWebURI(__DIR__ . '/resources/logo.png');
-        // 
-        // include(__DIR__ . '/resources/login.php');
+        switch($AppEngine->Configs->Server->Request->method) {
+            case 'POST':
+                $data = $AppEngine->runActions('auth-user');
+                printf( '<div class="w3-panel w3-red login-message">%s</div>', $data['msg']);
+
+                $AppEngine->runActions('include-login');
+                break;
+
+            case 'GET':
+                $AppEngine->runActions('include-login');
+                break;
+
+            case 'PUT':
+                //code goes here
+                break;
+
+            case 'DELETE':
+                //code goes here
+
+                break;
+        }
 
         return ['success' => true
                ,'exit'    => true
